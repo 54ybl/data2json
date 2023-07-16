@@ -46,7 +46,7 @@ struct tm tmp, now = {
 
 int main(void)
 {
-    int cnt = 0, i = 0, tm = 1000;
+    int cnt = 0, i = 0,tmn = 10;
     float temp = 0, hum = 0, press = 0, eleva = 0, lux = 0;
     char fire = 0;
     char loc[50];
@@ -96,7 +96,7 @@ int main(void)
 
         UART5_Read();
         // 数据采集发送计时器
-        if (cnt == 10)
+        if (cnt >= tmn)
         {
             // RTC获取时间
             ls1x_rtc_get_datetime(&tmp);
@@ -127,14 +127,15 @@ int main(void)
             // 拼接数据包
             link1(t1, t2, t3);
             // printf("%d\r\n", i);
+            UART4_Read();
             UART4_Test(result);
             UART5_Test(result);
-            // printf("%d", tm);
+            printf("tm=%d", tmn);
             i++;
             cnt = 0;
         }
         cnt++;
-        tm = UART5_Read();
+        tmn = UART5_Read();
 
         // result内存释放，避免溢出
         memset(result, 0, sizeof(result));

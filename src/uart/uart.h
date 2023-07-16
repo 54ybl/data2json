@@ -15,6 +15,7 @@ extern "C" {
 char buff[256];
 
 void UART4_Config_Init(void);
+int UART4_Read(void);
 void UART4_Test(char* buff);
 
 int UART5_Read(void);

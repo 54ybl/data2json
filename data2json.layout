@@ -1,6 +1,6 @@
 [Editors]
 OpenCount=6
-Focused=130
+Focused=142
 
 [Editor_87]
 OpenOrder=-1
@@ -36,9 +36,9 @@ UnitIndex=135
 
 [Editor_143]
 OpenOrder=3
-CursorRow=135
-CursorCol=10
-TopLine=39
+CursorRow=133
+CursorCol=17
+TopLine=121
 LeftChar=1
 UnitIndex=142
 
@@ -52,9 +52,9 @@ UnitIndex=143
 
 [Editor_146]
 OpenOrder=4
-CursorRow=19
-CursorCol=1
-TopLine=6
+CursorRow=74
+CursorCol=2
+TopLine=48
 LeftChar=1
 UnitIndex=145
 
