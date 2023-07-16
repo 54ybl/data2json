@@ -6,6 +6,14 @@
         "ns16550.h": "c",
         "link.h": "c",
         "ls1b_gpio.h": "c",
-        "ls1x_i2c_bus.h": "c"
+        "ls1x_i2c_bus.h": "c",
+        "string.h": "c",
+        "uart.h": "c",
+        "pthread.h": "c",
+        "press.h": "c",
+        "lux.h": "c",
+        "other.h": "c",
+        "ls1b.h": "c",
+        "time.h": "c"
     }
 }

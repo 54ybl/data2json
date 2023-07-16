@@ -52,6 +52,7 @@ src \
 src/i2c \
 src/link \
 src/lux \
+src/other \
 src/press \
 src/uart
 

@@ -18,7 +18,7 @@ char t3[200];
 char quote1[100];
 char result[256];
 
-char* link(char* t1,char* t2,char* t3);
+char* link1(char* t1,char* t2,char* t3);
 
 //定义键值对结构体
 struct index{

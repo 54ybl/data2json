@@ -49,6 +49,7 @@ RM := rm -rf
 -include src/i2c/subdir.mk
 -include src/link/subdir.mk
 -include src/lux/subdir.mk
+-include src/other/subdir.mk
 -include src/press/subdir.mk
 -include src/uart/subdir.mk
 

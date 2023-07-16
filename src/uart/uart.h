@@ -12,6 +12,12 @@
 extern "C" {
 #endif
 
+char buff[256];
+
+void UART4_Config_Init(void);
+void UART4_Test(char* buff);
+
+int UART5_Read(void);
 void UART5_Config_Init(void);
 void UART5_Test(char* buff);
 
