@@ -14,6 +14,7 @@
         "lux.h": "c",
         "other.h": "c",
         "ls1b.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "mips.h": "c"
     }
 }

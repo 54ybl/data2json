@@ -13,6 +13,7 @@
 
 #include "ls1b.h"
 #include "mips.h"
+#include "ls1b_gpio.h"
 
 #include "src\press\press.h"
 #include "src\i2c\i2c.h"
@@ -42,6 +43,12 @@ struct tm tmp, now = {
 // 主程序
 //-------------------------------------------------------------------------------------------------
 
+static void ls1b_set_gpio_regs(void)
+{
+    gpio_enable(40, DIR_OUT);    // Pin: CAN0_SDA2
+    gpio_enable(41, DIR_OUT);    // Pin: CAN0_SCL2
+}
+
 // 本机MAC: 02:02:17:00:01:01
 
 int main(void)
@@ -51,10 +58,15 @@ int main(void)
     char fire = 0;
     char loc[50];
     strcpy(loc, "112.342473&16.842207");
+
     I2C1_init();
     Get_HDC_ID();
     TSL_init();
     SPL06_init();
+    ls1b_set_gpio_regs();
+
+    gpio_write(40,0);
+    gpio_write(41,0);
 
     // 初始化串口
     UART4_Config_Init();
@@ -96,7 +108,7 @@ int main(void)
 
         UART5_Read();
         // 数据采集发送计时器
-        if (cnt >= tmn)
+        if (cnt >= 10)
         {
             // RTC获取时间
             ls1x_rtc_get_datetime(&tmp);
@@ -127,7 +139,6 @@ int main(void)
             // 拼接数据包
             link1(t1, t2, t3);
             // printf("%d\r\n", i);
-            UART4_Read();
             UART4_Test(result);
             UART5_Test(result);
             printf("tm=%d", tmn);
@@ -136,6 +147,7 @@ int main(void)
         }
         cnt++;
         tmn = UART5_Read();
+        tmn = UART4_Read();
 
         // result内存释放，避免溢出
         memset(result, 0, sizeof(result));
